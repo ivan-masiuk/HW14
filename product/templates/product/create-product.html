@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+
+{% block title %}Create product{% endblock %}
+
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Save Product">
+</form>
+
+{% endblock %}

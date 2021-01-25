@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+
+{% block title %}Product info{% endblock %}
+
+{% block content %}
+
+    <script>
+        let msg;
+        {% if messages %}
+            {% for message in messages %}
+                msg="{{ message }}"
+                {#alert("{{ message }}")#}
+            {% endfor %}
+        {% endif %}
+    </script>
+
+{#        about product:        #}
+    {{ product.id }} <br>
+    {{ product.title }}
+
+    {#<form method='post' action="{% url 'product_details' product.id %}?m=delete">#}
+    <form method='post' action="">
+        {% csrf_token %}
+        <input type="submit" name="action" value="delete">
+        {% if product.is_active == False %}
+            <input type="submit" name="action" value="activate">
+        {% else %} <input type="submit" name="action" value="deactivate">
+        {% endif %}
+    </form>
+
+{% endblock %}

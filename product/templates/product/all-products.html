@@ -1,0 +1,20 @@
+{% extends 'template.html' %}
+
+{% block title %}All products{% endblock %}
+
+{% block content %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% for product in products %}
+            {{ product.title }} {{ product.id }} <a href="{% url 'product_details' pid=product.id %}">show</a>
+            <img src="{{ product.image }}" alt="alt image"> <br>
+    {% endfor %}
+
+{% endblock %}
