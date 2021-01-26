@@ -14,9 +14,13 @@
         {% endif %}
     </script>
 
-{#        about product:        #}
-    {{ product.id }} <br>
-    {{ product.title }}
+    {#   about product:    #}
+    <div>
+        <h2>Product id: {{ product.id }}</h2>
+        <p>Product title: {{ product.title }}</p>
+        <p>Price: {{ product.price }}</p>
+        <p>Product description: {{ product.description }}</p>
+    </div>
 
     {#<form method='post' action="{% url 'product_details' product.id %}?m=delete">#}
     <form method='post' action="">

@@ -49,4 +49,7 @@ def create_product(request):
     if request.POST and form.is_valid():
         product = form.save(commit=True)
         return redirect(reverse('product_details', args=(product.id,)))
-    return render(request, 'product/create-product.html', form)
+    context = {
+        'form': form,
+    }
+    return render(request, 'product/create-product.html', context)

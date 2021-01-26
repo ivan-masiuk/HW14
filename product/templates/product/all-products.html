@@ -13,8 +13,14 @@
     {% endif %}
 
     {% for product in products %}
-            {{ product.title }} {{ product.id }} <a href="{% url 'product_details' pid=product.id %}">show</a>
-            <img src="{{ product.image }}" alt="alt image"> <br>
+        {#   about product:    #}
+            <div>
+                <h2>Product id: {{ product.id }}</h2>
+                <p>Product title: {{ product.title }}</p>
+                <p>Price: {{ product.price }}</p>
+                <a href="{% url 'product_details' pid=product.id %}">About product</a>
+                <img src="{{ product.image }}" alt="no image"> <br>
+            </div>
     {% endfor %}
 
 {% endblock %}
