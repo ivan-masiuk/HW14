@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+
+{% block title %}Upload .xmlx file{% endblock %}
+
+{% block content %}
+    <h2>Upload XMLX file</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="ExcelFile">
+        <button type="submit">Upload file</button>
+    </form>
+
+{% endblock %}
