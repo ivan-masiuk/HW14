@@ -6,7 +6,8 @@
 
 <form method="post" action="">
     {% csrf_token %}
-    {{ form.as_table }}
+    {#    as table do not work!    #}
+    {{ form.as_table}}
     <input type="submit" value="Save Product">
 </form>
 

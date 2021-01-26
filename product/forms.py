@@ -8,4 +8,4 @@ from product.models import Product
 class ProductModelForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = "__all__"
+        fields = "__all__" #какие поля будут в форме

@@ -18,11 +18,13 @@ from django.urls import path
 
 from product.views import (all_products,
                            product_details,
-                           create_product)
+                           create_product,
+                           add_xl_file)
 
 urlpatterns = [
     path('', all_products, name='all_products'),
     path('create/', create_product, name='create_product'),
+    path('upload_products/', add_xl_file, name='add_xl_file'),
     path('<int:pid>/delete/', product_details, name='delete_product'),
     path('<int:pid>/', product_details, name='product_details'),
 

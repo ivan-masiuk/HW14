@@ -8,6 +8,8 @@ from product.forms import ProductModelForm
 from django.urls import reverse
 from django.contrib import messages
 
+from product.readerxl import readxl
+
 
 def all_products(request):
     context = {
@@ -48,8 +50,18 @@ def create_product(request):
     form = ProductModelForm(request.POST or None)
     if request.POST and form.is_valid():
         product = form.save(commit=True)
+        print(request.POST)
         return redirect(reverse('product_details', args=(product.id,)))
     context = {
         'form': form,
     }
     return render(request, 'product/create-product.html', context)
+
+
+def add_xl_file(request):
+    if request.POST:
+        uploaded_file = request.FILES['ExcelFile']
+        print(uploaded_file.name)
+        print(uploaded_file.size)
+        # readxl(file)
+    return render(request, 'product/upload-products.html')
