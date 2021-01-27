@@ -30,7 +30,7 @@ def readxl(file_xlx):
                 # print('instance:', instance)
                 total_products += 1
             else:
-                # print('in else1 condition')
+                print('in else1 condition')
         print('Total:', total_products)
     except:
-        # print('Raise error')
+        print('Raise error')
