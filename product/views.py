@@ -61,7 +61,6 @@ def create_product(request):
 def add_xl_file(request):
     if request.POST:
         uploaded_file = request.FILES['ExcelFile']
-        print(uploaded_file.name)
-        print(uploaded_file.size)
-        # readxl(file)
+        readxl(uploaded_file.file)
+        # return redirect(reverse('/'))
     return render(request, 'product/upload-products.html')
