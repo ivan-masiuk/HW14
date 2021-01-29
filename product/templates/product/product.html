@@ -30,6 +30,10 @@
             <input type="submit" name="action" value="activate">
         {% else %} <input type="submit" name="action" value="deactivate">
         {% endif %}
+
+        <input type="number" value="1" step="1" min="1" name="qty">
+
+        <input type="submit" name="action" value="add to cart">
     </form>
 
 {% endblock %}

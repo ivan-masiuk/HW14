@@ -15,9 +15,11 @@
         </ul>
     {% endif %}
 
-    <a href="/">Home</a>
-    <a href="/create/">Create product</a>
-    <a href="/upload_products/">Upload file with products</a><br>
+    <a href="/">Home |</a>
+    <a href="/create/">Create product |</a>
+    <a href="/upload_products/">Upload file |</a>
+    <a href="/cart/">Cart ({{ request.session.cart.items|length }})|</a><br>
+
     {% block content %}{% endblock %}
 
 </body>

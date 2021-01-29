@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% block title %}My Cart{% endblock %}
+
+{% block content %}
+
+    Count : {{ request.session.cart.items|length }} <br>
+    {% for pid, item in request.session.cart.items %}
+        Product:
+        <a href="{% url 'product_details' pid=pid %}">{{ item.title }}</a>,
+        price: {{ item.price }} <br>
+        <form action="" method="post">
+            {% csrf_token %}
+            {#     input type="hidden" передает данные     #}
+            <input type="hidden" name= "pid" value="{{ pid }}">
+            <input type="submit" name="action" value="delete">
+            <input type="submit" name="action" value="+">
+            <input type="submit" name="action" value="-">
+        </form>
+
+
+    {% endfor %}
+
+
+{% endblock %}

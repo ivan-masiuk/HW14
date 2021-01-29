@@ -19,10 +19,12 @@ from django.urls import path
 from product.views import (all_products,
                            product_details,
                            create_product,
-                           add_xl_file)
+                           add_xl_file,
+                           user_cart)
 
 urlpatterns = [
     path('', all_products, name='all_products'),
+    path('cart/', user_cart, name='user_cart'),
     path('create/', create_product, name='create_product'),
     path('upload_products/', add_xl_file, name='add_xl_file'),
     path('<int:pid>/delete/', product_details, name='delete_product'),
