@@ -20,11 +20,12 @@ def readxl(file_xlx):
                 model = row[3].value
                 start_price = row[4].value
                 end_price = row[5].value
-                defaults = {'title': category,
+                defaults = {'title': model,
                             'price': start_price,
                             'quantity': 5,
                             'is_active': True,
-                            'description': model}
+                            'category': category,
+                            'company': company}
                 instance, created = Product.objects.update_or_create(id=article, defaults=defaults)
                 # print('create/update product:', created)
                 # print('instance:', instance)
